@@ -1,0 +1,21 @@
+server:
+  servlet:
+    context-path: /api
+spring:
+  jpa:
+    database: postgresql
+    hibernate:
+      format-sql: true
+    generate-ddl: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: ${application.db.password}
+    url: jdbc:postgresql://${application.db.host}:${application.db.port}/postgres?currentSchema=${application.db.schema}
+    username: postgres
+
+application:
+  db:
+    host: localhost
+    port: 5432
+    schema: public
+    password: mypassword
