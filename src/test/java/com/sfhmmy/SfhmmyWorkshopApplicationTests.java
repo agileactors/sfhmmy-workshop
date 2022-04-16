@@ -34,7 +34,8 @@ class SfhmmyWorkshopApplicationTests {
 		createUserRequestDto.setFirstName("testname");
 		createUserRequestDto.setLastName("testlastname");
 		HttpEntity<CreateUserRequestDto> httpEntity = new HttpEntity<>(createUserRequestDto);
-		ResponseEntity<CreateUserResponseDto> responseEntity = testRestTemplate.exchange("/users", HttpMethod.POST, httpEntity, CreateUserResponseDto.class);
+		ResponseEntity<CreateUserResponseDto> responseEntity =
+				testRestTemplate.exchange("/users", HttpMethod.POST, httpEntity, CreateUserResponseDto.class);
 		assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
 
 		CreateUserResponseDto createUserResponseDto = responseEntity.getBody();
